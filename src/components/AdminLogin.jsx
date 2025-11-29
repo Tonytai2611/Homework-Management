@@ -11,17 +11,26 @@ import { useAuth } from "../auth/AuthProvider";
  */
 const AdminLogin = () => {
   const { isAdmin, adminEmail, loginAsAdmin, logout } = useAuth();
+  const [debug, setDebug] = React.useState(null);
 
   const handleSuccess = (credentialResponse) => {
     try {
       const token = credentialResponse?.credential;
-      if (!token) return alert('No credential returned from Google');
+      if (!token) {
+        console.warn('No credential returned from Google', credentialResponse);
+        alert('No credential returned from Google');
+        return;
+      }
       const decoded = jwt_decode(token);
+      console.log('Decoded credential:', decoded);
       const email = decoded?.email || decoded?.upn || decoded?.sub || null;
       if (!email) {
+        console.warn('Unable to read email from credential', decoded);
         alert('Unable to read email from credential');
         return;
       }
+
+      setDebug({ decoded, email });
 
       const ok = loginAsAdmin({ email, token });
       if (!ok) {
@@ -46,10 +55,17 @@ const AdminLogin = () => {
       </div>
     );
   }
-
   return (
     <div>
       <GoogleLogin onSuccess={handleSuccess} onError={handleError} />
+
+      <div className="text-xs text-gray-500 mt-2">
+        <div>Debug: isAdmin = {String(isAdmin)}</div>
+        <div>Stored auth: <pre className="whitespace-pre-wrap">{localStorage.getItem('hb_auth') || 'null'}</pre></div>
+        {debug && (
+          <div className="mt-1 text-xs text-gray-700">Last decoded email: <strong>{debug.email}</strong></div>
+        )}
+      </div>
     </div>
   );
 };
