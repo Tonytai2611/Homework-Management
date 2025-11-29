@@ -7,7 +7,7 @@ import "./styles/index.css";
 import { AuthProvider } from "./auth/AuthProvider";
 
 // NOTE: Replace with your Google OAuth client ID when deploying
-const GOOGLE_CLIENT_ID = "746431102984-atvbbr6dk021une3nv7pl7mkbfqsnaac.apps.googleusercontent.com";
+const GOOGLE_CLIENT_ID = "746431102984-dcvs2ct686p5cahu4g32h3rca4anl9eu.apps.googleusercontent.com";
 
 createRoot(document.getElementById("root")).render(
   <React.StrictMode>
