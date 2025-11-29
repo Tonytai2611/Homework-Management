@@ -1,0 +1,13 @@
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import Index from "./pages/Index";
+import ClassPage from "./pages/Class";
+
+export default function App(){
+  return (
+    <Routes>
+      <Route path="/" element={<Index/>} />
+      <Route path="/class/:classId" element={<ClassPage/>} />
+    </Routes>
+  )
+}

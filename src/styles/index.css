@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --bg: #fffaf5;
+}
+
+html,body,#root{
+  height:100%;
+}
+
+body{
+  @apply bg-[var(--bg)] text-foreground font-sans;
+}
+
+.wood-frame{ background: linear-gradient(#8b5a2b, #6b3e22); }
+.chalkboard-texture{ background: linear-gradient(180deg,#274e2a,#1f3b1f); color:white }
+.cork-texture{ background: repeating-linear-gradient(45deg,#e7cda6 0,#e7cda6 20px,#d9b887 20px,#d9b887 40px); }
+
+.homework-item{ @apply flex items-center gap-4 p-3 rounded-xl hover:shadow-md transition-colors bg-chalk/5 }
+
+.btn-class-card{ @apply p-6 rounded-2xl shadow-md text-center relative overflow-hidden }
