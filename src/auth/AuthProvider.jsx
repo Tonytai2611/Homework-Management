@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 
-const ADMIN_EMAIL = "tantaitruong2611@outlook.com";
+const ADMIN_EMAIL = "tantaitruong2611@gmail.com";
 
 const AuthContext = createContext(null);
 
