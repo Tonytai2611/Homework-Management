@@ -60,7 +60,7 @@ const AdminLogin = () => {
       <div className="flex flex-col sm:flex-row items-center gap-2">
         <GoogleLogin onSuccess={handleSuccess} onError={handleError} />
         <div className="text-xs text-gray-500 mt-2 sm:mt-0 sm:ml-3">
-          <span className="inline sm:hidden">Admin only</span>
+          {/* <span className="inline sm:hidden">Admin only</span> */}
           <span className="hidden sm:inline">Only admin can login.</span>
         </div>
       </div>
