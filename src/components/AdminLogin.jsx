@@ -60,11 +60,7 @@ const AdminLogin = () => {
       <GoogleLogin onSuccess={handleSuccess} onError={handleError} />
 
       <div className="text-xs text-gray-500 mt-2">
-        <div>Debug: isAdmin = {String(isAdmin)}</div>
-        <div>Stored auth: <pre className="whitespace-pre-wrap">{localStorage.getItem('hb_auth') || 'null'}</pre></div>
-        {debug && (
-          <div className="mt-1 text-xs text-gray-700">Last decoded email: <strong>{debug.email}</strong></div>
-        )}
+        <div>Only admin can login.</div>
       </div>
     </div>
   );

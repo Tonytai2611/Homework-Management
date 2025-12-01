@@ -1,6 +1,10 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 
-const ADMIN_EMAIL = "tantaitruong2611@gmail.com";
+// Allowed admin emails. Add or update emails here.
+const ADMIN_EMAILS = [
+  "tantaitruong2611@gmail.com",
+  "leotruong",
+];
 
 const AuthContext = createContext(null);
 
@@ -26,7 +30,7 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const loginAsAdmin = ({ email, token }) => {
-    if (email === ADMIN_EMAIL) {
+    if (ADMIN_EMAILS.includes(email)) {
       setIsAdmin(true);
       setAdminEmail(email);
       setToken(token || null);

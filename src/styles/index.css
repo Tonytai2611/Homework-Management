@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
 :root{
   --bg: #fffaf5;
 }
@@ -11,7 +13,8 @@ html,body,#root{
 }
 
 body{
-  @apply bg-[var(--bg)] text-foreground font-sans;
+  @apply bg-[var(--bg)] text-foreground;
+  font-family: 'Poppins', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
 }
 
 .wood-frame{ background: linear-gradient(#8b5a2b, #6b3e22); }
@@ -21,3 +24,12 @@ body{
 .homework-item{ @apply flex items-center gap-4 p-3 rounded-xl hover:shadow-md transition-colors bg-chalk/5 }
 
 .btn-class-card{ @apply p-6 rounded-2xl shadow-md text-center relative overflow-hidden }
+
+/* helper utilities for smooth card transitions */
+.card-transition{
+  @apply transform transition duration-200 ease-out;
+}
+
+.hover-pop:hover{
+  @apply scale-105 shadow-2xl;
+}
