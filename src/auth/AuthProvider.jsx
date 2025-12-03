@@ -4,7 +4,8 @@ import { auth, rtdb, rtdbSet, rtdbSubscribe } from "../firebase";
 
 // Allowed admin emails. Add or update emails here.
 const ADMIN_EMAILS = [
-  "tantaitruong2611@gmail.com"
+  "tantaitruong2611@gmail.com",
+  "leotruong2412@gmail.com"
 ];
 
 const normalizeEmail = (email) => (email || "").trim().toLowerCase();

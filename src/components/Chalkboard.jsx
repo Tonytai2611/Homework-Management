@@ -6,14 +6,21 @@ const Chalkboard = ({ title, subtitle, isAdmin = false, onEditSubtitle, children
       <div className="wood-frame p-3 rounded-2xl shadow-playful">
         <div className="chalkboard-texture rounded-xl p-6 min-h-[220px]">
           {title && (
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="text-2xl font-bold">📚 {title}</h2>
-              <div className="flex items-center gap-2">
-                {subtitle && <div className="text-sm text-chalk/80">{subtitle}</div>}
-                {isAdmin && onEditSubtitle && (
-                  <button onClick={onEditSubtitle} className="px-3 py-1 rounded bg-amber-400 text-foreground text-sm">Edit</button>
+            <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+              <div className="flex flex-wrap items-center gap-3">
+                <h2 className="text-2xl font-bold">📚 {title}</h2>
+                {subtitle && (
+                  <span className="rounded-full bg-white/15 px-3 py-1 text-sm font-semibold text-chalk flex items-center gap-1">
+                    <span aria-hidden="true">🗓️</span>
+                    {subtitle}
+                  </span>
                 )}
               </div>
+              {isAdmin && onEditSubtitle && (
+                <button onClick={onEditSubtitle} className="rounded-full bg-amber-400/90 px-4 py-1 text-sm font-semibold text-foreground shadow hover:bg-amber-300">
+                  Edit range
+                </button>
+              )}
             </div>
           )}
           {children}
