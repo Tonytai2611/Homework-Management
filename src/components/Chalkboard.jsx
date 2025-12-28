@@ -2,9 +2,9 @@ import React from "react";
 
 const Chalkboard = ({ title, subtitle, isAdmin = false, onEditSubtitle, children }) => {
   return (
-    <div className="relative">
-      <div className="wood-frame p-3 rounded-2xl shadow-playful">
-        <div className="chalkboard-texture rounded-xl p-6 min-h-[220px]">
+    <div className="relative flex-1 flex flex-col">
+      <div className="wood-frame p-3 rounded-2xl shadow-playful flex-1 flex flex-col">
+        <div className="chalkboard-texture rounded-xl p-6 min-h-[220px] flex-1">
           {title && (
             <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
               <div className="flex flex-wrap items-center gap-3">

@@ -9,11 +9,11 @@ import { useAuth } from "../auth/AuthProvider";
 import { rtdb, rtdbSet, rtdbSubscribe } from "../firebase";
 import { deriveClassColor, DEFAULT_CLASS_COLOR } from "../utils/classColors";
 
-function slugify(name){
-  return name.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');
+function slugify(name) {
+  return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 }
 
-const Index = ()=>{
+const Index = () => {
   const navigate = useNavigate();
   const { isAdmin } = useAuth();
   const [classes, setClasses] = useState(() => Array.isArray(initialClasses) ? initialClasses : []);
@@ -75,10 +75,10 @@ const Index = ()=>{
   };
 
   const pickMascot = (currentId = null) => {
-    const pool = ['🦊','🐸','🦉','🐼','🐰','🦁','🐨','🐵','🐶','🐱','🐯','🦄','🐷','🐻','🐝'];
+    const pool = ['🦊', '🐸', '🦉', '🐼', '🐰', '🦁', '🐨', '🐵', '🐶', '🐱', '🐯', '🦄', '🐷', '🐻', '🐝'];
     const used = new Set((classes || []).filter(cls => cls.id !== currentId).map(x => x.mascot));
     const available = pool.filter(p => !used.has(p));
-    return available.length ? available[Math.floor(Math.random()*available.length)] : pool[Math.floor(Math.random()*pool.length)];
+    return available.length ? available[Math.floor(Math.random() * available.length)] : pool[Math.floor(Math.random() * pool.length)];
   };
 
   const submitClassForm = async (e) => {
@@ -201,7 +201,7 @@ const Index = ()=>{
             <label className="block text-sm font-medium">Class name</label>
             <input
               value={classForm.name}
-              onChange={(e)=>setClassForm((prev)=>({ ...prev, name: e.target.value }))}
+              onChange={(e) => setClassForm((prev) => ({ ...prev, name: e.target.value }))}
               className="mt-1 w-full rounded border p-2"
               placeholder="e.g. Movers 3"
             />
@@ -210,7 +210,7 @@ const Index = ()=>{
             <label className="block text-sm font-medium">Mascot emoji</label>
             <input
               value={classForm.mascot}
-              onChange={(e)=>setClassForm((prev)=>({ ...prev, mascot: e.target.value }))}
+              onChange={(e) => setClassForm((prev) => ({ ...prev, mascot: e.target.value }))}
               className="mt-1 w-full rounded border p-2"
               placeholder="🦊"
               maxLength={4}
@@ -273,7 +273,7 @@ const Index = ()=>{
               className="rounded bg-red-600 px-4 py-2 text-white"
               disabled={isDeleting}
             >
-              {isDeleting ? 'Deleting...' : 'Delete' }
+              {isDeleting ? 'Deleting...' : 'Delete'}
             </button>
           </div>
         </div>

@@ -1,6 +1,6 @@
 import React from "react";
 
-const StudentAvatar = ({ emoji, name, points, photo, isAdmin = false, onEditPoints, onEditPhoto, onEditName }) => {
+const StudentAvatar = ({ emoji, name, points, photo, isAdmin = false, onEditPoints, onEditPhoto, onEditName, onDelete }) => {
   return (
     <div className="flex flex-col items-center gap-2 p-3 rounded-xl bg-white/5 relative transform transition hover:scale-105 hover:shadow-lg">
       <div className="w-16 h-16 rounded-full overflow-hidden bg-white/10 flex items-center justify-center text-3xl transition-transform duration-200 hover:scale-110">
@@ -35,6 +35,13 @@ const StudentAvatar = ({ emoji, name, points, photo, isAdmin = false, onEditPoin
             title="Edit photo"
           >
             📷
+          </button>
+          <button
+            onClick={onDelete}
+            className="bg-red-500 rounded-full p-1 text-xs shadow hover:scale-110 transition"
+            title="Delete student"
+          >
+            ✕
           </button>
         </div>
       )}
